@@ -1,6 +1,6 @@
 #lang racket/base
 (require redex
-         unstable/gui/redex
+         ;; unstable/gui/redex
          slideshow/pict
          racket/class
          racket/gui/base

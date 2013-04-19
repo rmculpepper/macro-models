@@ -84,8 +84,17 @@ The initial syntactic environment @emph{(at each phase)} is
 
 @section{... With Generalized @tt{let}}
 
-The following changes to the model generalize @racket[let-syntax] and
-@racket[let-for-syntax] to arbitrary phases.
+The following changes to the previous model generalize
+@racket[let-syntax] and @racket[let-for-syntax] to @racket[letS] and
+@racket[letV], which take the phase to bind in as an argument.
+
+Examples using @racket[let-syntax] etc should be rewritten as follows:
+
+@racketblock[
+(let-syntax x e1 e2)            => (letS 0 x e1 e2)
+(let-for-syntax x e1 e2)        => (letV 1 x e1 e2)
+(let-syntax-for-syntax x e1 e2) => (letS 1 x e1 e2)
+]
 
 The set of transformers is updated:
 
@@ -107,6 +116,8 @@ The following helper metafunction is added:
 
 @; ------------------------------------------------------------
 
+@;{
+
 @section{... With Generalized @tt{let}, refactored}
 
 @(mglet2:expand->pict)
@@ -114,3 +125,5 @@ The following helper metafunction is added:
 The following helper metafunctions are added:
 
 @(mglet2:metas->pict)
+
+}
