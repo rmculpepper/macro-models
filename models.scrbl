@@ -1,13 +1,14 @@
 #lang scribble/manual
 @(require redex/pict
-          "rewrites.rkt"
-          (prefix-in mbase: "mm-stxcase-fixes.rkt")
-          (prefix-in mphase: "mm-compile-0.rkt")
-          (prefix-in mglet: "mm-compile-1.rkt")
-          (prefix-in mglet2: "mm-compile.rkt"))
+          "rewrites.rkt")
 
-@; @title{Macro Models}
-@; @author{Ryan Culpepper}
+@;{
+
+Each section starts with a @(require ....) form that imports the
+pict-makers from the corresponding model. See that file for the Redex
+code. The typesetting/styling is in "rewrites.rkt".
+
+}
 
 @(define-syntax-rule (mm->pict e)
    (parameterize ((default-font-size 10)
@@ -16,12 +17,15 @@
      (with-rewrites (lambda () (term->pict mglet:mini e)))))
 
 @; ------------------------------------------------------------
+@(require (prefix-in mbase: "mm-stxcase-fixes.rkt"))
 
 @section{Hygienic Macros}
 
-This is the basic model of hygienic macros from @emph{Macros That Work
-Together}. There are separate @tt{parse} and @tt{expand} functions;
-phase-1 code is just parsed, not expanded.
+We start with the basic model of hygienic macros from @emph{Macros
+That Work Together}---that is, without the extensions the paper
+introduces. There are separate @tt{parse} and @tt{expand}
+functions. Since we have no phases, @racket[let-syntax] right-hand
+sides are not expanded, only parsed.
 
 @(mbase:lang->pict)
 
@@ -34,6 +38,7 @@ phase-1 code is just parsed, not expanded.
 @(mbase:expand->pict)
 
 @; ------------------------------------------------------------
+@(require (prefix-in mphase: "mm-compile-0.rkt"))
 
 @section{... With Phases}
 
@@ -81,6 +86,7 @@ The initial syntactic environment @emph{(at each phase)} is
 @(mphase:preamble-env-pict)
 
 @; ------------------------------------------------------------
+@(require (prefix-in mglet: "mm-compile-1.rkt"))
 
 @section{... With Generalized @tt{let}}
 
@@ -117,6 +123,7 @@ The following helper metafunction is added:
 @; ------------------------------------------------------------
 
 @;{
+@(require (prefix-in mglet2: "mm-compile.rkt"))
 
 @section{... With Generalized @tt{let}, refactored}
 
