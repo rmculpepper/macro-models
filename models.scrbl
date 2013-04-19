@@ -8,6 +8,9 @@ Each section starts with a @(require ....) form that imports the
 pict-makers from the corresponding model. See that file for the Redex
 code. The typesetting/styling is in "rewrites.rkt".
 
+Note that each model has examples (tests) near the end of the
+file. Search for define-example.
+
 }
 
 @(define-syntax-rule (mm->pict e)
