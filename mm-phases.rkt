@@ -4,7 +4,7 @@
          "define-example.rkt"
          slideshow/pict)
 
-;; based on mm-stxcase.rkt
+;; based on mm-stxcase-fixes.rkt
 
 ;; Added phases, sequence of environments, run-time environments.
 ;; Change expand+parse to compile.

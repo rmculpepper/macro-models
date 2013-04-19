@@ -38,7 +38,7 @@ sides are not expanded, only parsed.
 @(mbase:expand->pict)
 
 @; ------------------------------------------------------------
-@(require (prefix-in mphase: "mm-compile-0.rkt"))
+@(require (prefix-in mphase: "mm-phases.rkt"))
 
 @section{... With Phases}
 
@@ -86,7 +86,7 @@ The initial syntactic environment @emph{(at each phase)} is
 @(mphase:preamble-env-pict)
 
 @; ------------------------------------------------------------
-@(require (prefix-in mglet: "mm-compile-1.rkt"))
+@(require (prefix-in mglet: "mm-glet.rkt"))
 
 @section{... With Generalized @tt{let}}
 
@@ -123,7 +123,7 @@ The following helper metafunction is added:
 @; ------------------------------------------------------------
 
 @;{
-@(require (prefix-in mglet2: "mm-compile.rkt"))
+@(require (prefix-in mglet2: "mm-glet2.rkt"))
 
 @section{... With Generalized @tt{let}, refactored}
 
@@ -132,5 +132,4 @@ The following helper metafunction is added:
 The following helper metafunctions are added:
 
 @(mglet2:metas->pict)
-
 }

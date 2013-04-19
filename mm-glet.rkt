@@ -4,9 +4,10 @@
          "define-example.rkt"
          slideshow/pict)
 
-;; based on mm-stxcase.rkt
-;; Change expand+parse to compile.
-;; Added phases, sequence of environments.
+;; based on mm-phases.rkt
+
+;; Generalize let-syntax, let-for-syntax, etc to letS, letV
+;; which take phase literal as argument.
 
 (define-language mini
 

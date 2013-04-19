@@ -4,6 +4,8 @@
          "define-example.rkt"
          slideshow/pict)
 
+;; Fix eval (split into eval, app)
+
 (define-language mini
 
   ;; Executable AST and values:

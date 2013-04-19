@@ -4,9 +4,9 @@
          "define-example.rkt"
          slideshow/pict)
 
-;; based on mm-stxcase.rkt
-;; Change expand+parse to compile.
-;; Added phases, sequence of environments.
+;; based on mm-glet.rkt
+
+;; Refactor binding code into separate metafunctions.
 
 (define-language mini
 
